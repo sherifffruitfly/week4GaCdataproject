@@ -1,6 +1,6 @@
 # MeanAndSDDatasetExtract.R
 
-# clean space - FOR TESTING ONLY
+# clean the environment
 rm(list = ls())
 message("environment cleared")
 
@@ -77,7 +77,7 @@ colnames(activity_labels) <- c('ActivityID','Activity')
 message("column names assigned")
 
 
-# paste tables into one big dataset
+# paste measurement tables into one big dataset
 data_train <- cbind(y_train, subject_train, x_train)
 data_test <- cbind(y_test, subject_test, x_test)
 data <- rbind(data_train, data_test)
@@ -85,6 +85,8 @@ message("complete dataset created")
 
 
 # get mean/sd columns
+# I allow upper/lower case, for "mean", "std" and "sd", with or without method parentheses "()",
+# in order to be sure all needed columns are captured.
 cols.mean_std <- grep("mean\\(\\)|std\\(\\)|mean|std|MEAN|STD|SD|sd|ActivityID|SubjectID", names(data), value=T)
 data.mean_sd <- data[, cols.mean_std]
 message("mean/sd columns extracted")
@@ -99,20 +101,18 @@ data.mean_sd <- data.mean_sd[,c(2, 1, 82, 3:81)]
 message("activity names added by join")
 
 
-# extract desired subject-activity-mean summary data
-#library("dplyr")
-
-#   WHAT DOES THE DOT MEAN
-#   WHAT IS THE TILDE FOR (SOMETHING ABOUT GROUP BY?)
+# extract desired subject-activity-mean grouped summary means
 data.summary <- aggregate(. ~SubjectID + ActivityID, data, mean)
-#   WHAT IS THE COMMA AR THE END FOR? BECAUSE WE'RE ONLY ORER ROWS?
+
 data.summary <- data.summary[order(data.summary$SubjectID, data.summary$ActivityID),]
 message("summary extract created")
 
 
 # save to text
 write.table(data.summary, "data.summary.txt", row.name=FALSE)
+
+# for testing
 #write.csv(data.summary, "data.summary.csv", row.names=FALSE)
 #write.csv(data.mean_sd, "data.mean_sd.csv", row.names=FALSE)
-message("summary extract saved")
 
+message("summary extract saved")
