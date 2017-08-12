@@ -63,7 +63,7 @@ message("x/y training loaded")
 
 
 
-# slap column names horizontally on top of the tables
+# add column names to the tables
 colnames(x_train) <- features[,2] 
 colnames(x_test) <- features[,2] 
 
@@ -90,10 +90,29 @@ data.mean_sd <- data[, cols.mean_std]
 message("mean/sd columns extracted")
 
 
-# replace activityid with actual name. 
+# add human-readable activity name. 
 # we do this now instead of earlier for efficiency (smaller dataset being joined after the column projection)
 data.mean_sd <- merge(data.mean_sd, activity_labels,
                               by='ActivityID',
                               all.x=TRUE)
-data.mean_sd <- data.mean_sd[,c(1, 2, 82, 3:81)]
+data.mean_sd <- data.mean_sd[,c(2, 1, 82, 3:81)]
 message("activity names added by join")
+
+
+# extract desired subject-activity-mean summary data
+#library("dplyr")
+
+#   WHAT DOES THE DOT MEAN
+#   WHAT IS THE TILDE FOR (SOMETHING ABOUT GROUP BY?)
+data.summary <- aggregate(. ~SubjectID + ActivityID, data, mean)
+#   WHAT IS THE COMMA AR THE END FOR? BECAUSE WE'RE ONLY ORER ROWS?
+data.summary <- data.summary[order(data.summary$SubjectID, data.summary$ActivityID),]
+message("summary extract created")
+
+
+# save to text
+write.table(data.summary, "data.summary.txt", row.name=FALSE)
+#write.csv(data.summary, "data.summary.csv", row.names=FALSE)
+#write.csv(data.mean_sd, "data.mean_sd.csv", row.names=FALSE)
+message("summary extract saved")
+
