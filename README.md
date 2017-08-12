@@ -22,53 +22,58 @@ www.smartlab.ws<br>
 ### There are (confusingly) several distinct sets of requirements for the project. I address them in turn, below.
 
 
-    1. The submitted data set is tidy.
-	
-	_Submitted tidy dataset: data.summary.txt_
-	_(this is the final measurement means, grouped by subject/activity)_
-		
-    
+    1. The submitted data set is tidy.	
+_Submitted tidy dataset: data.summary.txt_<br>
+_(this is the final measurement means, grouped by subject/activity)_<br>
+<br>
+
 	2. The Github repo contains the required scripts.
     
-	_Required script: run_analysis.R_
-	_See the code for more detailed comments about computational procedure_
-	
+_Required script: run_analysis.R_<br>
+_See the code for more detailed comments about computational procedure_<br>
+<br>	
 	
 	3. GitHub contains a code book that modifies and updates the available codebooks with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information.
-    
-	_Required codebook: data.mean_sd_codebook.md_
-	
-	
+
+_Required codebook: data.mean_sd_codebook.md_<br>
+<br>
+<br>
+
 	4. The README that explains the analysis files is clear and understandable.
     
-	_This is as clear as the multiplicity of requirements permits, I guess :)_
-	
-	
+_This is as clear as the multiplicity of requirements permits, I guess :)_<br>	
+<br>
+<br>
+
 	5. The work submitted for this project is the work of the student who submitted it.
 	
-	_Confirmed_
+_Confirmed_
 	
 --------------------------------------------------------------------------------	
 ## Requirements II:
 
 	1. A tidy data set as described below
 
-	_Submitted tidy dataset: data.summary.txt_
-	
-	
+_Submitted tidy dataset: data.summary.txt_<br>
+<br>
+<br>
+
 	2. A link to a Github repository with your script for performing the analysis
 	
-	_Link:_ [github repo](https://github.com/sherifffruitfly/week4GaCdataproject)
+_Link:_ [github repo](https://github.com/sherifffruitfly/week4GaCdataproject)<br>
+<br>
+<br>
 
 	
 	3. A code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md.
 	
-	_Required codebook: data.mean_sd_codebook.md_
-	
-	
+_Required codebook: data.mean_sd_codebook.md_<br>
+<br>
+<br>
+
 	4. You should also include a README.md in the repo with your scripts.
 
-	_This file is the README.md_
+_This file is the README.md_
 	
 --------------------------------------------------------------------------------	
 ## Requirements III:
@@ -79,11 +84,12 @@ www.smartlab.ws<br>
 		3. Uses descriptive activity names to name the activities in the data set
 		4. Appropriately labels the data set with descriptive variable names.
 	
-	_This is implemented in run_analysis.R. See the code comments for detail._
-	
+_Implemented in run_analysis.R. See the code comments for detail._<br>
+<br>
+<br>
 	
 		5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-	_This is implemented in run_analysis.R, and also uploaded to the github repo as data.summary.txt ._
+_This is implemented in run_analysis.R, and also uploaded to the github repo as data.summary.txt ._
 
 ================================================================================
